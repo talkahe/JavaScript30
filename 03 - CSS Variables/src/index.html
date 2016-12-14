@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Scoped CSS variables and JS</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Nunito+Sans:200,700');
+         :root {
+            /*Entire document*/
+            --base: #ffc600;
+            --spacing: 10px;
+            --blur: 10px;
+        }
+        /*CSS Styles*/
+        
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+        
+        body {
+            text-align: center;
+            background: #193579;
+            font-family: "Nunito Sans", sans-serif;
+            color: #FFF;
+        }
+        
+        h2 {
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin: 1.5rem;
+        }
+        
+        div.controls-div {
+            margin: 1rem;
+            background: #237f85;
+            padding: 1rem;
+            border-radius: 10px;
+        }
+        
+        div.control {
+            display: inline-block;
+            width: 20%;
+            vertical-align: middle;
+        }
+        
+        label {
+            font-size: 1.3rem;
+            font-weight: 200;
+        }
+        
+        input {
+            width: 100px;
+        }
+        
+        img {
+            padding: var(--spacing);
+            background: var(--base);
+            filter: blur(var(--blur));
+            margin: .5rem;
+        }
+        
+        span {
+            color: var(--base);
+        }
+    </style>
+</head>
+<body>
+    <h2>Update CSS Variables with <span>JS</span></h2>
+    <div class="controls-div">
+        <div class="control">
+            <label for="spacing">Spacing</label>
+            <input type="range" name="spacing" min="10" max="200" value="10" data-sizing="px">
+        </div>
+        <div class="control">
+            <label for="blur">Blur</label>
+            <input type="range" name="blur" min="0" max="25" value="10" data-sizing="px">
+        </div>
+        <div class="control">
+            <label for="base">Base Color</label>
+            <input type="color" name="base" value="#ffc600">
+        </div>
+    </div>
+    <img src="https://unsplash.it/800/500/" alt="Ramdon image">
+    <script type="text/javascript">
+        const inputs = document.querySelectorAll(".control input");
+
+        function handleUpdate() {
+            const prefix = this.dataset.sizing || ''; //getting data-sizing property or nothing
+            document.documentElement.style.setProperty(`--${this.name}`, this.value + prefix);
+        }
+        inputs.forEach(input => input.addEventListener('change', handleUpdate));
+        inputs.forEach(input => input.addEventListener('mousemove', handleUpdate));
+    </script>
+</body>
+</html>

@@ -1,6 +1,6 @@
 /*jshint esversion: 6 */
 
-function rotateHands(){
+function rotateHands() {
     date = new Date();
 
     secondHand = document.querySelector(".second-hand");
@@ -13,4 +13,4 @@ function rotateHands(){
     hourHand.style.transform = `rotate(${(360/12) * (date.getHours() % 12) + 90}deg)`;
 }
 
-setInterval(rotateHands,1000);
+setInterval(rotateHands, 1000);
