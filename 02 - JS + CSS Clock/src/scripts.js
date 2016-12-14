@@ -4,15 +4,13 @@ function rotateHands(){
     date = new Date();
 
     secondHand = document.querySelector(".second-hand");
-    secondHand.style.transform = `rotate(${(360/60)*date.getSeconds()}deg)`;
+    secondHand.style.transform = `rotate(${(360/60) * date.getSeconds() + 90}deg)`;
 
     minuteHand = document.querySelector(".minute-hand");
-    minuteHand.style.transform = `rotate(${((360/60)/60)*date.getMinutes()}deg)`;
+    minuteHand.style.transform = `rotate(${(360/60) * date.getMinutes() + 90}deg)`;
 
-    // Hay que pasarlo a formato 12h
     hourHand = document.querySelector(".hour-hand");
-    console.log(date.getHours());
-    hourHand.style.transform = `rotate(${(((360/60)/60)/24)*date.getHours()}deg)`;
+    hourHand.style.transform = `rotate(${(360/12) * (date.getHours() % 12) + 90}deg)`;
 }
 
-var t=setInterval(rotateHands,1000);
+setInterval(rotateHands,1000);
