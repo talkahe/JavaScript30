@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans:200,400i');
+*, *::before, *::after, *:before, *:after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    background: #ffc600;
+    font-family: "Nunito Sans";
+    font-size: 20px;
+    font-weight: 200;
+}
+
+.search-form {
+    text-align: center;
+    width: 33%;
+    margin: 0 auto;
+    margin-top: 3rem;
+    min-width: 400px;
+}
+
+input.search {
+    width: 100%;
+    font-size: 2rem;
+    padding: .5em;
+    border: 10px solid #F7F7F7;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.12), inset 0 0 2px rgba(0, 0, 0, 0.19);
+    outline: none;
+    text-align: center;
+    z-index: 2;
+    position: relative;
+}
+
+ul.suggestions {
+    width: 88%;
+    margin: 0 auto;
+    /*background: #FFF;*/
+}
+
+ul.suggestions li {
+    text-align: left;
+    list-style: none;
+    padding: .8em;
+    border-bottom: 1px solid #D8D8D8;
+    background: #FFF;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.14);
+    text-transform: capitalize;
+    transition: background 0.2s;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+ul.suggestions li:nth-child(odd) {
+    transform: perspective(100px) rotateX(-3deg) translateY(-3px);
+    background: linear-gradient(to top, #FFF 0%, #EFE 100%);
+}
+
+ul.suggestions li:nth-child(even) {
+    transform: perspective(100px) rotateX(3deg) translateY(-4px) scale(1.003);
+    background: linear-gradient(to bottom, #FFF 0%, #EFE 100%);
+}
+
+span.population {
+    font-style: italic;
+    font-size: .7rem;
+    font-weight: 400;
+}
+
+span.hl {
+    background: #FFC600;
+}
