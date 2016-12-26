@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Key Detection</title>
+    <script type="text/javascript" src="http://www.cornify.com/js/cornify.js"></script>
+</head>
+<body>
+	<script>
+	const secretCode = 'jorgeputoamo';
+	const codeArray = secretCode.split('');
+	let index = 0;
+
+	window.addEventListener('keyup', (e) => {
+		(e.key === codeArray[index]) ? index++ : index = 0;
+		if(index === codeArray.length) cornify_add();
+	});
+	</script>
+</body>
+</html>
